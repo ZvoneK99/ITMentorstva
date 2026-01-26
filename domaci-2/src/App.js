@@ -1,4 +1,3 @@
-import './style.css';
 import Products from './Components/Products';
 import { useState } from 'react';
 

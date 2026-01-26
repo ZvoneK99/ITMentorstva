@@ -39,7 +39,6 @@ function addProduct() {
 
     return (
         <>
-    <button onClick={() => setProducts({})}>Delete products</button>
 
            {Object.entries(products).map(([phone, price]) => (
     <p key={phone}>
