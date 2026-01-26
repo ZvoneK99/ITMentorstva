@@ -7,15 +7,13 @@ import { useState } from 'react';
 function App() {
  let [tax, setTax] = useState(0)
 
-function Tax(e) {
-  setTax(e.target.value)
-  console.log(tax);
-}
-
   return (
     <>
       <Products tax={tax}/>
-      <input type="text" placeholder='Enter tax' onInput={Tax}/>
+      <Products tax={20} />
+
+      <Products tax={55}/>
+      <input type="text" placeholder='Enter tax' onInput={(e) => setTax(e.target.value)}/>
 
     </>    
   );
