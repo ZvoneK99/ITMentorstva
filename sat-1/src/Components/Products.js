@@ -37,6 +37,16 @@ function addProduct() {
     });
 }
 
+
+
+    function searchProduct(e) {
+
+        const searchValue = e.target.value;;
+        const search = products.hasOwnProperty(searchValue);
+        console.log(search);
+
+    }
+
     return (
         <>
     <button onClick={() => setProducts({})}>Delete products</button>
@@ -51,12 +61,15 @@ function addProduct() {
     <input type='text' placeholder='Unesi ime proizvoda' onInput={(e) => setNewProductName(e.target.value)}></input>
         <input type='number' placeholder='Unesi cijenu proizvoda' onInput={(e) => setNewProductPrice(e.target.value)}></input>
         <button onClick={addProduct}>Add new products!</button>
-
+        <div>
+            <div>
+        <input placeholder='Pretrazi objekt' onInput={searchProduct}/>
+        </div>
+        </div>
     </div>
         </>
     );
 }
-
 
 
 
