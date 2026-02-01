@@ -26,6 +26,9 @@ function City() {
     }
 
     function AddToList() {
+        if (city === "" || country === "" || temperature === "") {
+            return;
+        }
         setCities([
             ...cities,
             { city, country, temperature }
