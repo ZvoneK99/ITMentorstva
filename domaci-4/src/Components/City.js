@@ -7,9 +7,10 @@ function City() {
     let [country, setCountry] = useState();
     let [temperature, setTemperature] = useState();
 
-    function EnterName(e) {
-        const name = e.target.value;
-
+    function EnterCity(e) {
+        const city = e.target.value;
+        console.log(city);
+        return setCity(city);
     }
 
 
@@ -18,7 +19,7 @@ function City() {
             <div className="mt-2 border w-50 rounded card mx-auto bg-primary-subtle">
                 <h5 className="text-center ">Please enter data</h5>
                 <div className="mx-auto">
-                    <input className="form-control m-3" type="text" placeholder="Enter city" />
+                    <input className="form-control m-3" type="text" placeholder="Enter city" onInput={(e) => EnterCity(e)} />
                 </div>
                 <div className="mx-auto">
                     <input className="form-control m-3 rounded" type="text" placeholder="Enter country" />
@@ -29,7 +30,9 @@ function City() {
             </div>
             <div className="mt-2 border w-50 rounded card mx-auto bg-white">
                 <h5 className="text-center">Enter data results</h5>
-
+                <div className="mx-auto">
+                    <p className="fw-semibold">City: <span className="text-primary">{city}</span></p>
+                </div>
             </div>
         </div>
     );
