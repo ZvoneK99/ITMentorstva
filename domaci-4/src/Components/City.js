@@ -9,10 +9,15 @@ function City() {
 
     function EnterCity(e) {
         const city = e.target.value;
-        console.log(city);
+        //console.log(city);
         return setCity(city);
     }
 
+    function EnterCountry(i) {
+        const country = i.target.value;
+        //console.log(country);
+        return setCountry(country);
+    }
 
     return (
         <div className="d-flex justify-content-center align-items-center min-vh-100 flex-column bg-dark">
@@ -22,7 +27,7 @@ function City() {
                     <input className="form-control m-3" type="text" placeholder="Enter city" onInput={(e) => EnterCity(e)} />
                 </div>
                 <div className="mx-auto">
-                    <input className="form-control m-3 rounded" type="text" placeholder="Enter country" />
+                    <input className="form-control m-3 rounded" type="text" placeholder="Enter country" onInput={(i) => EnterCountry(i)} />
                 </div>
                 <div className="mx-auto">
                     <input className="form-control m-3  rounded" type="number" placeholder="Enter temperature" />
@@ -32,6 +37,11 @@ function City() {
                 <h5 className="text-center">Enter data results</h5>
                 <div className="mx-auto">
                     <p className="fw-semibold">City: <span className="text-primary">{city}</span></p>
+                    <hr />
+                </div>
+                <div className="mx-auto">
+                    <p className="fw-semibold">Country: <span className="text-primary">{country}</span></p>
+                    <hr />
                 </div>
             </div>
         </div>
