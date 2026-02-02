@@ -16,9 +16,9 @@ function Toggle() {
 
 
     return (
-        <>
+        <div className="d-flex justify-content-center">
             <button onClick={ChangeBtnValue}>{btn}</button>
-        </>
+        </div>
     );
 }
 export default Toggle;
