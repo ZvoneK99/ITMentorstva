@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ArrayNames from './Components/ArrayNames';
+import ArrayNumbers from './Components/ArrayNumbers';
+import ObjectProducts from './Components/ObjectProducts';
+import ObjectUsers from './Components/ObjectUsers';
+import ArrayCities from './Components/ArrayCities';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>
+        <ArrayNames />
+      </div>
+      <hr />
+      <div>
+        <ArrayNumbers />
+      </div>
+      <hr />
+      <div>
+        <ObjectProducts />
+      </div>
+      <hr />
+      <div>
+        <ObjectUsers />
+      </div>
+      <hr />
+      <div>
+        <ArrayCities />
+      </div>
+    </>
+
   );
 }
 
