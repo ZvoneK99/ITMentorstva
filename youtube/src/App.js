@@ -1,4 +1,5 @@
 import './App.css';
+import GetAllVideos from './Components/AllVideos';
 
 const VIDEOS = [
   {
@@ -16,19 +17,11 @@ const VIDEOS = [
 ]
 
 
-
 const App = () => {
 
   return (
     <>
-      {VIDEOS.map(video => {
-        return <div>
-          <a href={video.url} target='_blank'>
-            <img src={video.cover} />
-            <h3>{video.title}</h3>
-          </a>
-        </div>
-      })}
+      <GetAllVideos videos={VIDEOS} />
     </>
   );
 }
