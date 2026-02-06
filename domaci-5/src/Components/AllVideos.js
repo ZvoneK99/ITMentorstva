@@ -3,16 +3,24 @@ import VIDEOS from './../videos.json'
 const AllVideos = () => {
     return (
         <>
-            {VIDEOS.map(video => {
-                return <div className='d-block m-auto bg-primary'>
-                    <div className='d-block w-50 mb-5 m-auto border bg-secondary' key={video.id}>
-                        <h1>Video tite: {video.Title}</h1>
-                        <h3>{video.url}</h3>
-                        <iframe src={video.url} title={video.Title} />
+            {VIDEOS.map(video => (
+                <div key={video.id} className="outside-div py-4">
+                    <div className="w-50 mx-auto bg-white p-3 rounded shadow-sm">
+                        <iframe
+                            className="w-100 mb-3 rounded"
+                            src={video.url}
+                            title={video.Title}
+                            allowFullScreen
+                        />
+                        <h5 className="text-center fw-semibold">
+                            <span className="text-muted">Video Title:</span> {video.Title}
+                        </h5>
+
                     </div>
                 </div>
-            })}
+            ))}
         </>
     );
 }
+
 export default AllVideos;
