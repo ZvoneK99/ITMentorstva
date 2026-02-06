@@ -1,12 +1,16 @@
-import { Videos } from './../videos.json'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './Pages/Home';
+import Video from './Pages/Video';
 
-
-function App() {
+const App = () => {
   return (
     <>
-      {Videos.map(video => (
-        <h1>{video.title}</h1>
-      ))}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/video/:id' element={<Video />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
