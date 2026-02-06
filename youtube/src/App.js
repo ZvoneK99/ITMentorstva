@@ -1,11 +1,21 @@
 import './App.css';
-import GetAllVideos from './Components/AllVideos';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';
 
+
+//path = http://localhost:3000
+//path = "about" => http://localhost:3000/about
 const App = () => {
 
   return (
     <>
-      <GetAllVideos />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+        </Routes>
+      </BrowserRouter>
+      {/* <GetAllVideos /> */}
     </>
   );
 }
