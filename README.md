@@ -32,14 +32,12 @@ The focus is on **practical learning**, covering:
 
 ## How to Run
 
-1. Clone the repository:
-```bash
+
+# 1. Clone the repository
 git clone https://github.com/ZvoneK99/ITMentorstva.git
 
-2. Install dependencies:
-```bash
+# 2. Install dependencies
 npm install
 
-3. Start the development server:
-```bash
+# 3. Start the development server
 npm start
