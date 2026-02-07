@@ -1,4 +1,5 @@
 import VIDEOS from './../videos.json'
+import { Link } from 'react-router-dom'
 
 const AllVideos = () => {
     return (
@@ -12,12 +13,13 @@ const AllVideos = () => {
                             title={video.Title}
                             allowFullScreen
                         />
-                        <h5 className="text-center fw-semibold">
-                            <span className="text-muted">Video Title:</span> {video.Title}
-                        </h5>
-
-                    </div>
-                </div>
+                        <Link to={`/video/${video.id}`} title={video.Title}>
+                            <h5 className="text-center fw-semibold">
+                                <span className="text-muted">Video Title:</span> {video.Title}
+                            </h5>
+                        </Link>
+                    </div >
+                </div >
             ))}
         </>
     );

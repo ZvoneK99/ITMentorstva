@@ -20,10 +20,12 @@ const ShowOneVideo = () => {
         return <h1>There is no video with that ID.</h1>
     }
     return (
-        <>
-            <h1>{video.Title}</h1>
-            <iframe src={video.url} title={video.title} />
-        </>
+        <div className="outside-div py-4">
+            <div className="w-50 mx-auto bg-white p-3 rounded shadow-sm">
+                <h1 className="title text-center">{video.Title}</h1>
+                <iframe className="w-100 mb-3 rounded" src={video.url} title={video.title} />
+            </div>
+        </div>
     );
 }
 
