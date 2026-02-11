@@ -5,15 +5,16 @@ const SearchBar = () => {
         <form>
             <label>
                 Search:
-                <input type="text" name="search" onInput={(e) => SearchVideo(e)} />
+                <input type="text" name="search" onInput={(e) => SearchVideoByName(e.currentTarget.value)} />
             </label>
         </form >
     );
 }
 
-const SearchVideo = (e) => {
+const SearchVideoByName = (name) => {
+    let nameLower = name.toLowerCase();
     VIDEOS.forEach(video => {
-        if (e.target.value === video.title) {
+        if (nameLower === video.title.toLowerCase()) {
             console.log("Nasli smo video:", { title: video.title });
         }
     });
