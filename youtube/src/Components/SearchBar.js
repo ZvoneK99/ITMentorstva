@@ -11,14 +11,23 @@ const SearchBar = () => {
     );
 }
 
+//Fuzzy search
+
 const SearchVideoByName = (name) => {
-    let nameLower = name.toLowerCase();
     VIDEOS.forEach(video => {
-        if (nameLower === video.title.toLowerCase()) {
-            console.log("Nasli smo video:", { title: video.title });
+
+        name = name.toLowerCase();
+        video.title = video.title.toLowerCase();
+
+        if (video.title.includes(name)) {
+            console.log(video.title);
         }
+
     });
 }
+
+
+
 
 
 export default SearchBar;
