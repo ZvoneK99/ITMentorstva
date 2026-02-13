@@ -1,11 +1,11 @@
-import VIDEOS from './../videos.json'
 
-const SearchBar = () => {
+const SearchBar = ({ videos, onSearchVideo }) => {
+
     return (
         <form>
             <label>
                 Search:
-                <input type="text" name="search" onInput={(e) => SearchVideoByName(e.currentTarget.value)} />
+                <input type="text" name="search" onInput={(e) => SearchVideoByName(e.currentTarget.value, videos, onSearchVideo)} />
             </label>
         </form >
     );
@@ -13,20 +13,22 @@ const SearchBar = () => {
 
 //Fuzzy search
 
-const SearchVideoByName = (name) => {
-    VIDEOS.forEach(video => {
+const SearchVideoByName = (name, videos, onSearchVideo) => {
+
+    let foundVideos = [];
+
+    videos.forEach(video => {
 
         name = name.toLowerCase();
         video.title = video.title.toLowerCase();
 
         if (video.title.includes(name)) {
-            console.log(video.title);
+            foundVideos.push(video);
         }
 
     });
+    onSearchVideo(foundVideos);
 }
-
-
 
 
 
