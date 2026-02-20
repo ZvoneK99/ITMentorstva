@@ -1,8 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
+//console.log(process.env.REACT_APP_OMDBAPI_KEY, process.env.REACT_APP_OMDBAPI_URL);
 
-console.log(process.env.REACT_APP_OMDBAPI_KEY, process.env.REACT_APP_OMDBAPI_URL);
+fetch("http://www.omdbapi.com/?t=Terminator&apikey=85c1766e")
+  .then(response => response.json())
+  .then(jsonResponse => console.log(jsonResponse))
 
 function App() {
   return (
