@@ -4,9 +4,13 @@ import axios from 'axios';
 
 //console.log(process.env.REACT_APP_OMDBAPI_KEY, process.env.REACT_APP_OMDBAPI_URL);
 
-fetch("http://www.omdbapi.com/?t=Terminator&apikey=85c1766e")
-  .then(response => response.json())
-  .then(jsonResponse => console.log(jsonResponse))
+// fetch("http://www.omdbapi.com/?t=Terminator&apikey=85c1766e")
+//   .then(response => response.json())
+//   .then(jsonResponse => console.log(jsonResponse))
+
+axios.get(process.env.REACT_APP_OMDBAPI_URL)
+  .then(response => console.log(response.data))
+  .catch(error => console.log(error));
 
 function App() {
   return (
