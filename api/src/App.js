@@ -8,7 +8,10 @@ import axios from 'axios';
 //   .then(response => response.json())
 //   .then(jsonResponse => console.log(jsonResponse))
 
-axios.get(process.env.REACT_APP_OMDBAPI_URL)
+const URL = process.env.REACT_APP_OMDBAPI_URL;
+const apiKey = process.env.REACT_APP_OMDBAPI_KEY
+
+axios.get(`${URL}/?t=Terminator&apikey=${apiKey}`)
   .then(response => console.log(response.data))
   .catch(error => console.log(error));
 
