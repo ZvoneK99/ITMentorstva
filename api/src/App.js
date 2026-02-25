@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="movie-search-container d-flex justify-content-center align-items-center flex-column">
       <SearchBar />
-      <Movie />
     </div >
   );
 }

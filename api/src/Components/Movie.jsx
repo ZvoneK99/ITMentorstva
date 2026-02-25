@@ -1,8 +1,12 @@
 
 
-const Movie = () => {
+const Movie = ({ movie }) => {
     return (
-        <h1>test</h1>
+        <>
+            <img src={movie.Poster} />
+            <h1>{movie.Title}</h1>
+            <h5>{movie.Plot}</h5>
+        </>
     )
 }
 export default Movie;
