@@ -1,12 +1,13 @@
 
 
-const Movie = ({ movie }) => {
+const MovieCard = ({ movie }) => {
     return (
         <>
             <img src={movie.Poster} />
             <h1>{movie.Title}</h1>
-            <h5>{movie.Plot}</h5>
+            <p>{movie.Plot}</p>
         </>
     )
 }
-export default Movie;
+
+export default MovieCard;

@@ -1,13 +1,13 @@
 import './App.css';
-import Movie from './Components/Movie';
-import SearchBar from './Components/SearchBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Movies from './Components/Movies';
+import Navigation from './Templates/Snippets/Navigation';
 function App() {
   return (
-    <div className="movie-search-container d-flex justify-content-center align-items-center flex-column">
-      <SearchBar />
-    </div >
+    <>
+      <Navigation />
+      <Movies />
+    </>
   );
 }
 
