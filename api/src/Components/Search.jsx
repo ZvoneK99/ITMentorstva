@@ -1,18 +1,19 @@
 import Form from "react-bootstrap/Form";
-
+import { Button, Container } from "react-bootstrap";
 
 const Search = () => {
     return (
         <>
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
-                        asd
-                    </Form.Text>
-                </Form.Group>
-            </Form>
+
+            <Form className="bg-dark text-white">
+                <Container className="p-5">
+                    <Form.Group className="mb-1" controlId="formBasicTerm">
+                        <Form.Label>Enter movie title</Form.Label>
+                        <Form.Control type="text" placeholder="Enter movie title" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">Search</Button>
+                </Container>
+            </Form >
         </>
     )
 
