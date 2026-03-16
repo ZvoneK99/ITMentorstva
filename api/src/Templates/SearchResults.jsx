@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap"
 import MovieCard from "./Snippets/MovieCard"
 
 
-const SearchResults = () => {
+const SearchResults = ({ movies }) => {
     return (
         <div className="bg-dark">
             <Container className="d-flex flex-wrap">
@@ -16,4 +16,4 @@ const SearchResults = () => {
     )
 }
 
-export default SearchResults
+export default SearchResults;

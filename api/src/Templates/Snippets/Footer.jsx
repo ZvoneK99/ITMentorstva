@@ -7,7 +7,7 @@ const Footer = () => {
             <Card.Body>
                 <Card.Title>Filmovi.com (2026)</Card.Title>
                 <Card.Text>
-                    Copyright &copy;
+                    Copyright &copy; by <a href="https://www.linkedin.com/in/zvonimir-kozul/" target='_blank' rel='noopener noreferrer'>Zvonimir Kožul</a> - All rights reserved.
                 </Card.Text>
             </Card.Body>
         </Card>

@@ -2,6 +2,7 @@ import Form from "react-bootstrap/Form";
 import { Button, Container } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
+import SearchResults from "../Templates/SearchResults";
 
 const Search = () => {
 
@@ -13,7 +14,8 @@ const Search = () => {
     const SearchMovies = (e) => {
         e.preventDefault();
         axios.get(`${apiUrl}/?s=${searchTerm}&apikey=${apiKey}`)
-            .then(response => console.log(response.data));
+            .then(response => console.log(response.data.Search))
+            .catch(error => console.error(error));
     }
 
     return (
@@ -28,6 +30,8 @@ const Search = () => {
                     <Button variant="primary" type="submit" onClick={SearchMovies}>Search</Button>
                 </Container>
             </Form >
+
+            <SearchResults movies={movies} />
         </>
     )
 
