@@ -1,21 +1,21 @@
 import Form from "react-bootstrap/Form";
 import { Button, Container } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import SearchResults from "../Templates/SearchResults";
-import { useContext } from 'react';
+import { MoviesContext } from "../Context/MoviesContext";
 
 const Search = () => {
 
     const apiKey = process.env.REACT_APP_OMDBAPI_KEY;
     const apiUrl = process.env.REACT_APP_OMDBAPI_URL;
-    const [movies, setMovies] = useState([]);
+    const { movies, setMovies } = useContext(MoviesContext);
     const [searchTerm, setSearchTerm] = useState();
 
     const SearchMovies = (e) => {
         e.preventDefault();
         axios.get(`${apiUrl}/?s=${searchTerm}&apikey=${apiKey}`)
-            .then(response => setMovies(response.data.Search))
+            .then(response => setMovies(response.data.Search || []))
             .catch(error => console.error(error));
     }
 
@@ -32,7 +32,7 @@ const Search = () => {
                 </Container>
             </Form >
 
-            <SearchResults movies={movies} />
+            <SearchResults />
         </>
     )
 
