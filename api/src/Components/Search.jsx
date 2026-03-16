@@ -3,6 +3,7 @@ import { Button, Container } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 import SearchResults from "../Templates/SearchResults";
+import { useContext } from 'react';
 
 const Search = () => {
 
