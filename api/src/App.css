@@ -61,6 +61,11 @@
 }
 
 /* movie card */
+.movie-poster {
+  min-height: 400px;
+  max-height: 400px;
+  object-fit: cover;
+}
 
 .movie-card {
   margin-top: 50px;

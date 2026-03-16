@@ -6,11 +6,9 @@ const SearchResults = ({ movies }) => {
     return (
         <div className="bg-dark">
             <Container className="d-flex flex-wrap">
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
-                <MovieCard />
+                {movies.map(movie => {
+                    return <MovieCard movie={movie} />
+                })}
             </Container>
         </div>
     )

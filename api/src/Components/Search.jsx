@@ -14,7 +14,7 @@ const Search = () => {
     const SearchMovies = (e) => {
         e.preventDefault();
         axios.get(`${apiUrl}/?s=${searchTerm}&apikey=${apiKey}`)
-            .then(response => console.log(response.data.Search))
+            .then(response => setMovies(response.data.Search))
             .catch(error => console.error(error));
     }
 
