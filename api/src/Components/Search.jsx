@@ -10,7 +10,7 @@ const Search = () => {
     const apiKey = process.env.REACT_APP_OMDBAPI_KEY;
     const apiUrl = process.env.REACT_APP_OMDBAPI_URL;
     const { movies, setMovies } = useContext(MoviesContext);
-    const [searchTerm, setSearchTerm] = useState();
+    const [searchTerm, setSearchTerm] = useState("");
 
     const SearchMovies = (e) => {
         e.preventDefault();
