@@ -1,7 +1,8 @@
+import Payment from "./Payment";
 
 const Application = () => {
     return (
-        <h1>App</h1>
+        <Payment />
     )
 }
 export default Application;
