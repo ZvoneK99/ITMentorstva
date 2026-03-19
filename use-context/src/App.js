@@ -1,10 +1,10 @@
 import './App.css';
-import Application from './Components/Application';
+import Payment from './Components/Payment';
 
 function App() {
   return (
     <div>
-      <Application />
+      <Payment />
     </div>
   );
 }
