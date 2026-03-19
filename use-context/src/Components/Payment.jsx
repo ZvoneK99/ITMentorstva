@@ -1,8 +1,8 @@
 import Paypal from "./PayPal";
 
-const Payment = ({ currency }) => {
+const Payment = () => {
     return (<>
-        <Paypal currency={currency} />
+        <Paypal />
     </>)
 }
 export default Payment;
