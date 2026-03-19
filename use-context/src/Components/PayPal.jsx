@@ -1,7 +1,7 @@
 
-const PayPal = () => {
+const PayPal = ({ currency }) => {
     return (<>
-        <h1>test</h1>
+        <h1>PayPal: 100 {currency}</h1>
     </>);
 }
 

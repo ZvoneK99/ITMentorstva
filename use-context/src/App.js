@@ -2,9 +2,10 @@ import './App.css';
 import Payment from './Components/Payment';
 
 function App() {
+  const currency = "USD";
   return (
     <div>
-      <Payment />
+      <Payment currency={currency} />
     </div>
   );
 }
