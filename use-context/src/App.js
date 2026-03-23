@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { createContext, useState } from 'react';
 import Payment from './Components/Payment';
-import Currency from "./Currency.json";
+import CurrencyList from "./Currency.json";
 
 export const CurrencyContext = createContext("USD");
 export const AmountContext = createContext(0);
@@ -31,8 +31,10 @@ function App() {
         <div>
           <label>Choose currency: </label>
           <select>
-            <option value="EUR">EUR</option>
-            <option value="USD">USD</option>
+
+            {CurrencyList.map(currency => {
+              return (<option key={currency.id} value={currency.value}>{currency.valuta}</option>)
+            })}
           </select>
         </div>
 
