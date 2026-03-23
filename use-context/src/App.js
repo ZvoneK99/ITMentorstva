@@ -4,33 +4,37 @@ import { createContext, useEffect, useState } from 'react';
 import Payment from './Components/Payment';
 import CurrencyList from "./Currency.json";
 
+//useContext koje ću koristiti
 export const CurrencyContext = createContext("USD");
 export const AmountContext = createContext(0);
 export const ConvertedAmountContext = createContext(0);
 export const InitialCurrencyContext = createContext("BAM")
 
 function App() {
-  const [initialCurrency, setInitialCurrency] = useState("BAM")
+  const [initialCurrency, setInitialCurrency] = useState("BAM") //ova početna inicijalna valuta
   const [initialValue, setInitialValue] = useState(1)
   const [currency, setCurrency] = useState("USD");
   const [value, setValue] = useState(0.5918);
   const [amount, setAmount] = useState(0);
   const [convertedAmount, setConvertedAmount] = useState(0);
 
+  //pretvaranje inputa u num
   const updateAmount = (e) => {
     setAmount(Number(e));
   }
 
+  //množenje valute sa unesenim brojem
   useEffect(() => {
     setConvertedAmount(amount * (value / initialValue));
   }, [amount, value, initialValue]);
 
+  //pronalazak vrijednosti početne valute
   const updateInitialCurrency = (valuta) => {
     const selected = CurrencyList.find(c => c.valuta === valuta)
     setInitialCurrency(selected.valuta);
     setInitialValue(selected.value);
   }
-
+  //pronalazak vrijednosti valute
   const updateCurrency = (valuta) => {
     const selected = CurrencyList.find(c => c.valuta === valuta)
     setCurrency(selected.valuta);
@@ -41,7 +45,7 @@ function App() {
     <div>
       <div className="d-flex justify-content-center align-items-center flex-column mt-5">
         <h1 className='mb-3'>Currency calculator</h1>
-        <input onInput={(e) => updateAmount(e.target.value)} />
+        <input placeholder='Enter amount' onInput={(e) => updateAmount(e.target.value)} />
         <div>
           <label>Choose initial currency: </label>
           <select onChange={(e) => updateInitialCurrency(e.target.value)}>
