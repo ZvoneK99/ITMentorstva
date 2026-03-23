@@ -18,9 +18,9 @@ function App() {
     setAmount(e);
   }
 
-  const updateCurrency = () => {
-    setCurrency("EURO");
-    //console.log(currency);
+  const updateCurrency = (e) => {
+    setCurrency(e);
+    console.log(currency);
   }
 
   return (
@@ -30,10 +30,10 @@ function App() {
         <input onInput={(e) => updateAmount(e.target.value)} />
         <div>
           <label>Choose currency: </label>
-          <select>
+          <select onChange={(e) => updateCurrency(e.target.value)}>
 
             {CurrencyList.map(currency => {
-              return (<option key={currency.id} value={currency.value}>{currency.valuta}</option>)
+              return (<option key={currency.id} value={currency.valuta}>{currency.valuta}</option>)
             })}
           </select>
         </div>

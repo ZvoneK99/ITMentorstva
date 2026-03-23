@@ -6,8 +6,8 @@ const PayPal = () => {
     const { currency } = useContext(CurrencyContext);
 
     const { amount } = useContext(AmountContext);
-    console.log(currency);
-    console.log(amount);
+    // console.log(currency);
+    // console.log(amount);
     return (<>
         <h1>{amount} BAM = {amount} {currency}</h1>
     </>);
