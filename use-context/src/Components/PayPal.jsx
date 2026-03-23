@@ -9,7 +9,7 @@ const PayPal = () => {
     console.log(currency);
     console.log(amount);
     return (<>
-        <h1>PayPal: {amount} {currency}</h1>
+        <h1>{amount} BAM = {amount} {currency}</h1>
     </>);
 }
 
