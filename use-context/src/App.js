@@ -3,16 +3,15 @@ import './App.css';
 import Payment from './Components/Payment';
 
 export const CurrencyContext = createContext("USD");
-export const AmountContext = createContext("");
+export const AmountContext = createContext(0);
 
 function App() {
 
   const [currency, setCurrency] = useState("USD");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
 
   const updateAmount = (e) => {
     setAmount(e);
-    console.log(amount);
   }
 
   const updateCurrency = () => {
@@ -24,9 +23,11 @@ function App() {
     <div>
 
       <CurrencyContext.Provider value={{ currency, updateCurrency }}>
-        <Payment />
-        <button onClick={updateCurrency}>Change currency</button>
-        <input onInput={(e) => updateAmount(e.target.value)} />
+        <AmountContext.Provider value={{ amount, updateAmount }}>
+          <Payment />
+          <button onClick={updateCurrency}>Change currency</button>
+          <input onInput={(e) => updateAmount(e.target.value)} />
+        </AmountContext.Provider>
       </CurrencyContext.Provider>
 
     </div >
