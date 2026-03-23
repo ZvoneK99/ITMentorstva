@@ -9,18 +9,20 @@ export const AmountContext = createContext(0);
 
 function App() {
 
-
-
   const [currency, setCurrency] = useState("USD");
   const [amount, setAmount] = useState(0);
+  const [value, setValue] = useState(0.5918);
 
   const updateAmount = (e) => {
     setAmount(e);
   }
 
-  const updateCurrency = (e) => {
-    setCurrency(e);
-    console.log(currency);
+  const updateCurrency = (valuta) => {
+    const selected = CurrencyList.find(c => c.valuta === valuta)
+    setCurrency(selected.valuta);
+    setValue(selected.value);
+    console.log("Valuta:" + currency);
+    console.log("Vrijednost:" + value);
   }
 
   return (
