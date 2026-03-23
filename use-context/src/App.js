@@ -25,11 +25,11 @@ function App() {
       <CurrencyContext.Provider value={{ currency, updateCurrency }}>
         <AmountContext.Provider value={{ amount, updateAmount }}>
           <Payment />
-          <button onClick={updateCurrency}>Change currency</button>
-          <input onInput={(e) => updateAmount(e.target.value)} />
         </AmountContext.Provider>
       </CurrencyContext.Provider>
 
+      <button onClick={updateCurrency}>Change currency</button>
+      <input onInput={(e) => updateAmount(e.target.value)} />
     </div >
   );
 }
