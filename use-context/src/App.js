@@ -27,14 +27,12 @@ function App() {
     const selected = CurrencyList.find(c => c.valuta === valuta)
     setCurrency(selected.valuta);
     setValue(selected.value);
-    //console.log("Valuta:" + currency);
-    //console.log("Vrijednost:" + value);
   }
 
   return (
     <div>
       <div className="d-flex justify-content-center align-items-center flex-column mt-5">
-        <h1 className='mb-3'>Change from BAM to other currencies</h1>
+        <h1 className='mb-3'>Currency calculator</h1>
         <input onInput={(e) => updateAmount(e.target.value)} />
         <div>
           <label>Choose currency: </label>
@@ -53,10 +51,6 @@ function App() {
             </ConvertedAmountContext.Provider>
           </AmountContext.Provider>
         </CurrencyContext.Provider>
-
-        {/* <button onClick={updateCurrency}>Change currency</button>
-      <input onInput={(e) => updateAmount(e.target.value)} /> */}
-
 
       </div>
 
