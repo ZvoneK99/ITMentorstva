@@ -1,28 +1,34 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import Payment from './Components/Payment';
 import CurrencyList from "./Currency.json";
 
 export const CurrencyContext = createContext("USD");
 export const AmountContext = createContext(0);
+export const ConvertedAmountContext = createContext(0);
 
 function App() {
 
   const [currency, setCurrency] = useState("USD");
-  const [amount, setAmount] = useState(0);
   const [value, setValue] = useState(0.5918);
+  const [amount, setAmount] = useState(0);
+  const [convertedAmount, setConvertedAmount] = useState(0);
 
   const updateAmount = (e) => {
-    setAmount(e);
+    setAmount(Number(e));
   }
+
+  useEffect(() => {
+    setConvertedAmount(amount * value);
+  }, [amount, value]);
 
   const updateCurrency = (valuta) => {
     const selected = CurrencyList.find(c => c.valuta === valuta)
     setCurrency(selected.valuta);
     setValue(selected.value);
-    console.log("Valuta:" + currency);
-    console.log("Vrijednost:" + value);
+    //console.log("Valuta:" + currency);
+    //console.log("Vrijednost:" + value);
   }
 
   return (
@@ -42,7 +48,9 @@ function App() {
 
         <CurrencyContext.Provider value={{ currency, updateCurrency }}>
           <AmountContext.Provider value={{ amount, updateAmount }}>
-            <Payment />
+            <ConvertedAmountContext.Provider value={{ convertedAmount, setConvertedAmount }}>
+              <Payment />
+            </ConvertedAmountContext.Provider>
           </AmountContext.Provider>
         </CurrencyContext.Provider>
 
