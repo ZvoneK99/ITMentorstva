@@ -1,21 +1,26 @@
 [
     {
         "id": 1,
+        "valuta": "BAM",
+        "value": "1"
+    },
+    {
+        "id": 2,
         "valuta": "USD",
         "value": "0.5918"
     },
     {
-        "id": 2,
+        "id": 3,
         "valuta": "EUR",
         "value": "0.5113"
     },
     {
-        "id": 3,
+        "id": 4,
         "valuta": "GBP",
         "value": "0.4271"
     },
     {
-        "id": 4,
+        "id": 5,
         "valuta": "CHF",
         "value": "0.4911"
     }
