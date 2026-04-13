@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createContext, useEffect, useReducer, useState } from 'react';
 import Payment from './Components/Payment';
 import CurrencyList from "./Currency.json";
-import { initialUserState, userReducer } from './Reducers/User';
+import { initialUserState, loadUserState, userReducer } from './Reducers/User';
 
 //useContext koje ću koristiti
 export const CurrencyContext = createContext("USD");
@@ -13,7 +13,7 @@ export const InitialCurrencyContext = createContext("BAM")
 
 function App() {
 
-  const [userState, dispatch] = useReducer(userReducer, initialUserState)
+  const [userState, dispatch] = useReducer(userReducer, loadUserState());
 
   const [initialCurrency, setInitialCurrency] = useState("BAM") //ova početna inicijalna valuta
   const [initialValue, setInitialValue] = useState(1)
@@ -47,6 +47,12 @@ function App() {
     }
     dispatch({ type: "SET_USER_CREATED", payload: true });
   }
+
+  useEffect(() => {
+    if (userState.isUserCreated) {
+      localStorage.setItem("userState", JSON.stringify(userState));
+    }
+  }, [userState]);
 
   //pronalazak vrijednosti početne valute
   const updateInitialCurrency = (valuta) => {
