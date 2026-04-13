@@ -17,6 +17,9 @@ function App() {
   const [value, setValue] = useState(0.5918);
   const [amount, setAmount] = useState(0);
   const [convertedAmount, setConvertedAmount] = useState(0);
+  const [username, setuserName] = useState(null);
+  const [money, setMoney] = useState(null);
+  const [isUserCreated, setIsUserCreated] = useState(false);
 
   //pretvaranje inputa u num
   const updateAmount = (e) => {
@@ -27,6 +30,19 @@ function App() {
   useEffect(() => {
     setConvertedAmount(amount * (value / initialValue));
   }, [amount, value, initialValue]);
+
+  const updateName = (e) => {
+    setuserName(e);
+    //console.log(username);
+  }
+
+
+  const saveUser = () => {
+    if (username === null || username.trim() === "" || isNaN(money) || money === null || money.trim() === "") {
+      return;
+    }
+    setIsUserCreated(true);
+  }
 
   //pronalazak vrijednosti početne valute
   const updateInitialCurrency = (valuta) => {
@@ -43,7 +59,17 @@ function App() {
 
   return (
     <div>
+
       <div className="d-flex justify-content-center align-items-center flex-column mt-5">
+
+        {!isUserCreated &&
+          <form>
+            <input placeholder="Enter name" onInput={(e) => setuserName(e.target.value)} />
+            <input placeholder="Enter money" onInput={(e) => setMoney(e.target.value)} />
+            <button preventDefault type='button' onClick={saveUser}>Create User</button>
+          </form>
+        }
+
         <h1 className='mb-3'>Currency calculator</h1>
         <input placeholder='Enter amount' onInput={(e) => updateAmount(e.target.value)} />
         <div>
