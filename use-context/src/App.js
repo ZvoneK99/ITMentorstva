@@ -1,8 +1,9 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useReducer, useState } from 'react';
 import Payment from './Components/Payment';
 import CurrencyList from "./Currency.json";
+import { initialUserState, userReducer } from './Reducers/User';
 
 //useContext koje ću koristiti
 export const CurrencyContext = createContext("USD");
@@ -11,15 +12,18 @@ export const ConvertedAmountContext = createContext(0);
 export const InitialCurrencyContext = createContext("BAM")
 
 function App() {
+
+  const [userState, dispatch] = useReducer(userReducer, initialUserState)
+
   const [initialCurrency, setInitialCurrency] = useState("BAM") //ova početna inicijalna valuta
   const [initialValue, setInitialValue] = useState(1)
   const [currency, setCurrency] = useState("USD");
   const [value, setValue] = useState(0.5918);
   const [amount, setAmount] = useState(0);
   const [convertedAmount, setConvertedAmount] = useState(0);
-  const [username, setuserName] = useState(null);
-  const [money, setMoney] = useState(null);
-  const [isUserCreated, setIsUserCreated] = useState(false);
+  // const [username, setuserName] = useState(null);
+  // const [money, setMoney] = useState(null);
+  // const [isUserCreated, setIsUserCreated] = useState(false);
 
   //pretvaranje inputa u num
   const updateAmount = (e) => {
@@ -31,17 +35,17 @@ function App() {
     setConvertedAmount(amount * (value / initialValue));
   }, [amount, value, initialValue]);
 
-  const updateName = (e) => {
-    setuserName(e);
-    //console.log(username);
-  }
+  // const updateName = (e) => {
+  //   setuserName(e);
+  //   //console.log(username);
+  // }
 
 
   const saveUser = () => {
-    if (username === null || username.trim() === "" || isNaN(money) || money === null || money.trim() === "") {
+    if (userState.username === null || userState.username.trim() === "" || isNaN(userState.money) || userState.money === null) {
       return;
     }
-    setIsUserCreated(true);
+    dispatch({ type: "SET_USER_CREATED", payload: true });
   }
 
   //pronalazak vrijednosti početne valute
@@ -62,11 +66,11 @@ function App() {
 
       <div className="d-flex justify-content-center align-items-center flex-column mt-5">
 
-        {!isUserCreated &&
+        {!userState.isUserCreated &&
           <form>
-            <input placeholder="Enter name" onInput={(e) => setuserName(e.target.value)} />
-            <input placeholder="Enter money" onInput={(e) => setMoney(e.target.value)} />
-            <button preventDefault type='button' onClick={saveUser}>Create User</button>
+            <input placeholder="Enter name" onInput={(e) => dispatch({ type: "SET_USERNAME", payload: e.target.value })} />
+            <input placeholder="Enter money" onInput={(e) => dispatch({ type: "SET_MONEY", payload: e.target.value })} />
+            <button type='button' onClick={saveUser}>Create User</button>
           </form>
         }
 
