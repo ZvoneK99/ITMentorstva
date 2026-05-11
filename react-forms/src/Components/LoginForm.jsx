@@ -12,9 +12,10 @@ const LoginForm = () => {
         <div className='d-flex justify-content-center align-items-center flex-column min-vh-100 mb-2'>
             <form className='d-flex flex-column gap-2' onSubmit={handleSubmit(formSubmitted)}>
 
-                <input {...register("firstname", { required: true, maxLength: 20 })} type="text" placeholder="Username" />
-                {errors.firstname?.type === 'required' && <span>Username is required!</span>}
-                {errors.firstname?.type === 'maxLength' && <span>Username is too long!</span>}
+                <input {...register("email", { required: true, maxLength: 20, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ })} type="text" placeholder="Username" />
+                {errors.email?.type === 'required' && <span>Username is required!</span>}
+                {errors.email?.type === 'maxLength' && <span>Username is too long!</span>}
+                {errors.email?.type === 'pattern' && <span>Email not validate!</span>}
 
 
                 <input {...register("password", {
