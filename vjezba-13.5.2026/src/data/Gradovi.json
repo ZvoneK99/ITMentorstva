@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Zagreb"
+    },
+    {
+        "id": 2,
+        "name": "Split"
+    },
+    {
+        "id": 3,
+        "name": "Rijeka"
+    },
+    {
+        "id": 4,
+        "name": "Osijek"
+    },
+    {
+        "id": 5,
+        "name": "Zadar"
+    },
+    {
+        "id": 6,
+        "name": "Široki Brijeg"
+    }
+]
