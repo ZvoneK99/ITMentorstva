@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import Home from './Pages/Home';
+import About from './Pages/About';
 
 function App() {
   return (
@@ -26,8 +27,10 @@ function App() {
       </nav>
       <main style={{ minHeight: 'calc(100vh - 200px)' }}>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <footer className="bg-dark text-white text-center py-4 mt-5">
